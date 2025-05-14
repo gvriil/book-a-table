@@ -1,0 +1,76 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Welcome to Coughlan's{% endblock %}
+
+{% block extra_css %}
+    <style>
+        /* Full-screen hero section without direct opacity on the container */
+        .hero {
+            position: relative;
+            height: 100vh; /* Full viewport height */
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Ensure no opacity is set on .hero itself */
+        }
+
+        /* Dark overlay applied via a pseudo-element */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        /* Hero content with off-white text */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Ensure this is above the overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            padding: 0 20px;
+            color: #f8f8f8; /* Off white color for the text */
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Coughlan's</h1>
+            <p>Experience exquisite seasonal menus and a vibrant bar atmosphere.</p>
+            <!-- Sample Menu Buttons -->
+            <div>
+                <a href="{% url 'lunch_menu' %}" class="btn btn-outline-light mx-2">Lunch Menu</a>
+                <a href="{% url 'dinner_menu' %}" class="btn btn-outline-light mx-2">Dinner Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <p style="color: #f8f8f8;">Approved Reviews: {{ approved_reviews|length }}</p>
+
+    {% include 'bookings/review_ticker.html' with reviews=approved_reviews %}
+
+{% endblock %}

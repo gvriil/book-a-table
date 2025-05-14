@@ -1,0 +1,47 @@
+<!-- This template displays the available timeslots for booking a table -->
+<!-- It extends the base template and overrides the title and content blocks -->
+{% extends 'bookings/base.html' %}
+
+{% block title %}Available Timeslots{% endblock %}
+
+<!-- Add custom CSS for styling the timeslot buttons -->
+{% block extra_css %}
+<style>
+    .timeslot-button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        font-size: 16px;
+    }
+    .available {
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
+    .unavailable {
+        background-color: grey;
+        color: white;
+        cursor: not-allowed;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Available Timeslots</h1>
+<div>
+    <!-- Loop through each timeslot -->
+    {% for slot in timeslots %}
+        {% if slot.available %}
+            <!-- If available, display as a clickable link that sends the selected time -->
+            <a href="{% url 'book_table' %}?time={{ slot.time }}" class="timeslot-button available">
+                {{ slot.time }}
+            </a>
+        {% else %}
+            <!-- If unavailable, display a disabled button -->
+            <button class="timeslot-button unavailable" disabled>
+                {{ slot.time }}
+            </button>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
