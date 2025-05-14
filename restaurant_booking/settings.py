@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'restaurant_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Движок базы данных
-        'NAME': os.environ.get('DB_NAME'),  # Имя базы данных
+        'NAME': os.environ.get('DB_NAME', 'book_a_table'),  # Имя базы данных
         'USER': os.environ.get('DB_USER'),  # Имя пользователя
         'PASSWORD': os.environ.get('DB_PASSWORD', 'book'),  # Пароль (по умолчанию "book")
         'HOST': os.environ.get('DB_HOST', 'db'),  # Адрес хоста
