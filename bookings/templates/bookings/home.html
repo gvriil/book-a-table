@@ -1,6 +1,6 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Welcome to Coughlan's{% endblock %}
+{% block title %}Добро Пожаловать в Coughlan's{% endblock %}
 
 {% block extra_css %}
     <style>
@@ -53,24 +53,22 @@
         }
 
     </style>
+
 {% endblock %}
 
 {% block content %}
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Coughlan's</h1>
-            <p>Experience exquisite seasonal menus and a vibrant bar atmosphere.</p>
-            <!-- Sample Menu Buttons -->
-            <div>
-                <a href="{% url 'lunch_menu' %}" class="btn btn-outline-light mx-2">Lunch Menu</a>
-                <a href="{% url 'dinner_menu' %}" class="btn btn-outline-light mx-2">Dinner Menu</a>
-            </div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Добро пожаловать в Coughlan's</h1>
+        <p>Эксклюзивное меню из сезонных продуктов</p>
+        <div>
+            <a href="{% url 'lunch_menu' %}" class="btn btn-outline-light mx-2">Обед</a>
+            <a href="{% url 'dinner_menu' %}" class="btn btn-outline-light mx-2">Ужин</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <p style="color: #f8f8f8;">Approved Reviews: {{ approved_reviews|length }}</p>
+<p>Одобренных отзывов: {{ approved_reviews|length }}</p>
 
-    {% include 'bookings/review_ticker.html' with reviews=approved_reviews %}
-
+{% include 'bookings/review_ticker.html' with reviews=approved_reviews %}
 {% endblock %}

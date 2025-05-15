@@ -1,6 +1,6 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Booking Confirmed{% endblock %}
+{% block title %}Бронь подтверждена{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -45,15 +45,15 @@
 
 {% block content %}
 <div class="booking-success-container">
-  <h1>Booking Confirmed!</h1>
-  <p>Your reservation at Coughlan's has been confirmed. Thank you for booking with us.</p>
+  <h1>Бронирование подтверждено!</h1>
+  <p>Ваш столик в ресторане "Коглан" успешно забронирован.</p>
   <ul class="booking-details">
-    <li><strong>Name:</strong> {{ booking.name }}</li>
+    <li><strong>Имя:</strong> {{ booking.name }}</li>
     <li><strong>Email:</strong> {{ booking.email }}</li>
-    <li><strong>Phone:</strong> {{ booking.phone }}</li>
-    <li><strong>Date:</strong> {{ booking.date }}</li>
-    <li><strong>Time:</strong> {{ booking.time }}</li>
-    <li><strong>Guests:</strong> {{ booking.guests }}</li>
+    <li><strong>Телефон:</strong> {{ booking.phone }}</li>
+    <li><strong>Дата:</strong> {{ booking.date }}</li>
+    <li><strong>Время:</strong> {{ booking.time }}</li>
+    <li><strong>Гостей:</strong> {{ booking.guests }}</li>
   </ul>
 </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Book a Table{% endblock %}
+{% block title %}Бронирование столика{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -57,15 +57,14 @@
 
 {% block content %}
 <div class="booking-form-container">
-  <h1>Book a Table</h1>
+  <h1>Забронировать столик</h1>
   <form method="POST">
     {% csrf_token %}
     {% if form.non_field_errors %}
     <div class="alert alert-danger">
       {{ form.non_field_errors }}
     </div>
-  {% endif %}
-    <!-- Loop through each field manually to control layout -->
+    {% endif %}
     {% for field in form %}
       <div class="form-group">
         {{ field.label_tag }}
@@ -75,7 +74,7 @@
         {% endif %}
       </div>
     {% endfor %}
-    <button type="submit">Submit Booking</button>
+    <button type="submit">Подтвердить бронь</button>
   </form>
 </div>
 {% endblock %}

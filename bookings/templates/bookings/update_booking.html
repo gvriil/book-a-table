@@ -1,10 +1,9 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Update Your Booking{% endblock %}
+{% block title %}Изменение бронирования{% endblock %}
 
 {% block extra_css %}
 <style>
-  /* Additional tweaks specific to the update page */
   .update-form-container {
     max-width: 600px;
     margin: 80px auto;
@@ -17,7 +16,6 @@
     margin-bottom: 20px;
     color: #f8f8f8;
   }
-  /* Extra styling for the confirm email field */
   .update-form-container .confirm-group {
     display: flex;
     align-items: center;
@@ -38,20 +36,19 @@
 
 {% block content %}
 <div class="update-form-container">
-  <h1>Update Your Booking</h1>
+  <h1>Изменение бронирования</h1>
   <p>
-    Booking for <strong>{{ booking.date }}</strong> at <strong>{{ booking.time }}</strong> by <strong>{{ booking.name }}</strong>.
+    Бронь на <strong>{{ booking.date }}</strong> в <strong>{{ booking.time }}</strong> от <strong>{{ booking.name }}</strong>.
   </p>
-  
+
   {% if form.non_field_errors %}
     <div class="alert alert-danger">
       {{ form.non_field_errors }}
     </div>
   {% endif %}
-  
+
   <form method="POST">
     {% csrf_token %}
-    <!-- Loop through each form field -->
     {% for field in form %}
       <div class="form-group">
         {{ field.label_tag }}
@@ -61,12 +58,11 @@
         {% endif %}
       </div>
     {% endfor %}
-    <!-- Extra field for email confirmation -->
     <div class="form-group confirm-group">
-      <label for="confirm_email">Confirm Email:</label>
-      <input type="email" name="confirm_email" class="form-control" placeholder="Enter your email" required>
+      <label for="confirm_email">Подтвердите Email:</label>
+      <input type="email" name="confirm_email" class="form-control" placeholder="Введите ваш email" required>
     </div>
-    <button type="submit">Update Booking</button>
+    <button type="submit">Обновить бронь</button>
   </form>
 </div>
 {% endblock %}

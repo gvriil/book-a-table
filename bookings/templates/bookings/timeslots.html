@@ -1,10 +1,7 @@
-<!-- This template displays the available timeslots for booking a table -->
-<!-- It extends the base template and overrides the title and content blocks -->
 {% extends 'bookings/base.html' %}
 
-{% block title %}Available Timeslots{% endblock %}
+{% block title %}Доступные временные слоты{% endblock %}
 
-<!-- Add custom CSS for styling the timeslot buttons -->
 {% block extra_css %}
 <style>
     .timeslot-button {
@@ -27,17 +24,14 @@
 {% endblock %}
 
 {% block content %}
-<h1>Available Timeslots</h1>
+<h1>Доступные временные слоты</h1>
 <div>
-    <!-- Loop through each timeslot -->
     {% for slot in timeslots %}
         {% if slot.available %}
-            <!-- If available, display as a clickable link that sends the selected time -->
             <a href="{% url 'book_table' %}?time={{ slot.time }}" class="timeslot-button available">
                 {{ slot.time }}
             </a>
         {% else %}
-            <!-- If unavailable, display a disabled button -->
             <button class="timeslot-button unavailable" disabled>
                 {{ slot.time }}
             </button>

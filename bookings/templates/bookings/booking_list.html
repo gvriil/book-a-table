@@ -3,7 +3,7 @@
 <!-- If there are no bookings, it shows a message.-->
 {% extends 'bookings/base.html' %}
 
-{% block title %}All Bookings{% endblock %}
+{% block title %}Список бронирований{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -34,16 +34,17 @@
 </style>
 {% endblock %}
 
+
 {% block content %}
 <div class="booking-list-container">
-  <h1>Bookings</h1>
+  <h1>Все бронирования</h1>
   <ul>
     {% for booking in bookings %}
       <li>
-        <strong>{{ booking.name }}</strong> - {{ booking.date }} at {{ booking.time }} ({{ booking.guests }} guests)
+        <strong>{{ booking.name }}</strong> - {{ booking.date }} в {{ booking.time }} ({{ booking.guests }} гостей)
       </li>
     {% empty %}
-      <li>No bookings available.</li>
+      <li>Нет активных бронирований</li>
     {% endfor %}
   </ul>
 </div>

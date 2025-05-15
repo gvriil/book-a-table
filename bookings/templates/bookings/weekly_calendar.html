@@ -1,20 +1,18 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Weekly Calendar{% endblock %}
+{% block title %}Недельный календарь{% endblock %}
 
 {% block extra_css %}
 <style>
-  /* Container for the weekly calendar, matching other booking pages */
   .calendar-container {
       max-width: 600px;
       margin: 80px auto;
-      background-color: #556B2F; /* Olive green */
+      background-color: #556B2F;
       padding: 30px;
       border: 1px solid goldenrod;
       border-radius: 8px;
-      color: #f8f8f8; /* Off white text */
+      color: #f8f8f8;
   }
-  /* Style each day block */
   .calendar-day {
       margin-bottom: 20px;
   }
@@ -23,7 +21,6 @@
       margin-bottom: 10px;
       font-size: 1.5rem;
   }
-  /* Style the booking items for each day */
   .booking-item {
       padding: 5px 0;
       border-bottom: 1px solid goldenrod;
@@ -37,21 +34,21 @@
 
 {% block content %}
 <div class="calendar-container">
-  <h1>Weekly Calendar</h1>
-  <p>Bookings for the week starting on {{ week_start|date:"F j, Y" }}</p>
-  
+  <h1>Недельный календарь</h1>
+  <p>Бронирования на неделю с {{ week_start|date:"d.m.Y" }}</p>
+
   {% for day, bookings in bookings_by_day.items %}
     <div class="calendar-day">
-      <h2>{{ day|date:"l, M d" }}</h2>
+      <h2>{{ day|date:"l, d.m.Y" }}</h2>
       {% if bookings %}
         {% for booking in bookings %}
           <div class="booking-item">
-            <strong>{{ booking.name }}</strong> at {{ booking.time|time:"H:i" }} 
-            ({{ booking.guests }} guests)
+            <strong>{{ booking.name }}</strong> в {{ booking.time|time:"H:i" }}
+            ({{ booking.guests }} гостей)
           </div>
         {% endfor %}
       {% else %}
-        <p><em>No bookings</em></p>
+        <p><em>Нет бронирований</em></p>
       {% endif %}
     </div>
   {% endfor %}

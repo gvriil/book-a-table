@@ -1,6 +1,6 @@
 {% extends 'bookings/base.html' %}
 
-{% block title %}Cancel Booking Lookup{% endblock %}
+{% block title %}Отменить Поиск Бронирования{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -48,22 +48,22 @@
 
 {% block content %}
 <div class="lookup-container">
-  <h1>Lookup Your Booking</h1>
-  <p>Enter your email address to retrieve your booking(s).</p>
+  <h1>Найдите Ваше Бронирование</h1>
+  <p>Введите свой адрес электронной почты, чтобы получить ваши бронирования.</p>
   <form method="POST">
     {% csrf_token %}
     <input type="email" name="email" placeholder="Your email address" required>
-    <button type="submit">Find My Booking</button>
+    <button type="submit">Найти Мое Бронирование</button>
   </form>
-  
+
   {% if bookings_found %}
-    <h2>Your Bookings</h2>
+    <h2>Ваши Бронирования</h2>
     <ul>
       {% for booking in bookings_found %}
         <li class="booking-item">
           <strong>{{ booking.name }}</strong> - {{ booking.date }} at {{ booking.time }} ({{ booking.guests }} guests)
           <!-- Link to cancel this booking -->
-          <a href="{% url 'confirm_cancel' booking.id %}" class="btn btn-danger btn-sm">Cancel</a>
+          <a href="{% url 'confirm_cancel' booking.id %}" class="btn btn-danger btn-sm">Отменить</a>
         </li>
       {% endfor %}
     </ul>

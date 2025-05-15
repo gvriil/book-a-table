@@ -3,7 +3,7 @@
 <!-- When the button is clicked, the form is submitted (POST) and processed by the view. -->
 {% extends 'bookings/base.html' %}
 
-{% block title %}Confirm Cancellation{% endblock %}
+{% block title %}Подтверждение отмены{% endblock %}
 
 {% block extra_css %}
 
@@ -44,11 +44,11 @@
 
 {% block content %}
 <div class="cancel-confirm-container">
-  <h1>Confirm Cancellation</h1>
-  <p>Are you sure you want to cancel your booking?</p>
+  <h1>Подтвердите отмену</h1>
+  <p>Вы уверены, что хотите отменить бронирование?</p>
   <form method="POST">
     {% csrf_token %}
-    <button type="submit">Cancel Booking</button>
+    <button type="submit">Да, отменить</button>
   </form>
 </div>
 {% endblock %}
