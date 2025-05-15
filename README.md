@@ -38,7 +38,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/gvriil/restaurant_booking.git
+git clone https://github.com/gvriil/book-a-table.git
 cd restaurant_booking
 ```
 
