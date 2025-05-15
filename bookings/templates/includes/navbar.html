@@ -1,0 +1,37 @@
+<!-- Fixed Navbar at the top using Bootstrap classes -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Coughlan's</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <!-- Bookings Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="bookingsDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bookings
+                </a>
+                <div class="dropdown-menu" aria-labelledby="bookingsDropdown">
+                    <a class="dropdown-item" href="{% url 'book_table' %}">Book a Table</a>
+                    <a class="dropdown-item" href="{% url 'update_booking_lookup' %}">Update
+                        Booking</a>
+                    <a class="dropdown-item" href="{% url 'cancel_lookup' %}">Cancel Booking</a>
+                    {% if request.user.is_authenticated and request.user.is_staff %}
+                    <a class="dropdown-item" href="{% url 'weekly_calendar' %}">Calendar</a>
+                    {% endif %}
+                </div>
+            </li>
+            <!-- Admin Login Link -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:login' %}">Admin</a>
+            </li>
+            <!-- New Review Link -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'submit_review' %}">Leave a Review</a>
+            </li>
+        </ul>
+    </div>
+</nav>

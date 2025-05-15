@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',  # Сообщения для пользователей
     'django.contrib.staticfiles',  # Управление статическими файлами
     'bookings',  # Приложение для работы с бронированием
+    'rest_framework',
     'django_extensions',  # Доп. инструменты для разработки (django-extensions)
 ]
 
@@ -137,3 +138,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Вывод в консоль
 EMAIL_HOST = 'localhost'  # Хост для SMTP-сервера
 EMAIL_PORT = 1025  # Порт
+
+# Django REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}

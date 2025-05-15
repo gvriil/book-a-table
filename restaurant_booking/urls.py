@@ -1,7 +1,10 @@
-from django.urls import path
 from django.contrib import admin
+from django.urls import include
+from django.urls import path
 from django.views.generic import TemplateView
+from rest_framework.routers import DefaultRouter
 
+from bookings.views import BookingViewSet
 from bookings.views import (
     book_table,
     booking_success,
@@ -20,9 +23,12 @@ from bookings.views import (
 
 # Имя пространства имён для приложения 'bookings'
 app_name = 'bookings'
+router = DefaultRouter()
+router.register(r'bookings', BookingViewSet)
 
 # Пути, связанные с бронированием
 booking_patterns = [
+
     path('book/', book_table, name='book_table'),  # Страница для бронирования
     path('success/', booking_success, name='booking_success'),  # Успешное бронирование
     path('success/<int:booking_id>/', booking_success, name='booking_success'),
@@ -60,6 +66,7 @@ menu_patterns = [
 
 # Основные пути (маршруты) приложения
 urlpatterns = [
+                  path('api/', include(router.urls)),
                   path('admin/', admin.site.urls),  # Админка Django
                   path('', home, name='home'),  # Главная страница сайта
                   path('timeslots/', available_timeslots, name='available_timeslots'),

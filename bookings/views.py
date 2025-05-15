@@ -13,6 +13,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BookingForm, ReviewForm
 from .models import Booking, Review
 
+# bookings/views.py (добавить к существующим views)
+from rest_framework import viewsets
+from .models import Booking
+from .serializers import BookingSerializer
+
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
 
 def home(request):
     """
