@@ -1,9 +1,126 @@
 {% extends 'bookings/base.html' %}
+{% load static %}
 
 {% block title %}Меню Ужин{% endblock %}
 
+{% block extra_css %}
+<style>
+    .menu-header {
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #556B2F;
+        padding-bottom: 15px;
+    }
+
+    .menu-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+        color: #f8f8f8;
+    }
+
+    .menu-header p {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #f8f8f8;
+    }
+
+    .menu-category {
+        margin-top: 25px;
+        padding: 15px;
+        background-color: rgba(85, 107, 47, 0.3);
+        border-radius: 8px;
+    }
+
+    .menu-category h2 {
+        color: #f8f8f8;
+        margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+    }
+
+    .menu-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item h3 {
+        color: #f8f8f8;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .menu-item p {
+        color: #d9d9d9;
+        font-style: italic;
+    }
+
+    .menu-item .price {
+        color: #f8f8f8;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .seasonal-badge {
+        display: inline-block;
+        background-color: #556B2F;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        margin-left: 10px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<h1>Меню Ужин</h1>
-<p>Это пример меню ужина для Coughlan's. Наслаждайтесь нашими инновационными блюдами, которые меняются в зависимости от сезона.</p>
-<!-- Add dynamic content or a list of menu items here later-->
+<div class="unified-container">
+    <div class="menu-header">
+        <h1>Меню Ужин</h1>
+        <p>Изысканные блюда из лучших ингредиентов для вашего незабываемого вечера</p>
+    </div>
+
+    <div class="menu-category">
+        <h2>Эксклюзивное меню из сезонных продуктов</h2>
+
+        <div class="menu-item">
+            <h3>Филе лосося с соусом из белых грибов <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Свежее филе лосося, приготовленное на гриле, под изысканным соусом из местных белых грибов</p>
+            <div class="price">2450 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Ризотто с тыквой и козьим сыром <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Кремовое ризотто с сезонной тыквой, козьим сыром и свежим шалфеем</p>
+            <div class="price">1850 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Утиная грудка с вишневым соусом <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Сочная утиная грудка с карамелизированной корочкой, подается с вишневым соусом и сезонными овощами</p>
+            <div class="price">2675 ₽</div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h2>Десерты</h2>
+
+        <div class="menu-item">
+            <h3>Яблочный крамбл с ирландским виски <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Теплый яблочный крамбл с нотками корицы и ирландского виски, подается со взбитыми сливками</p>
+            <div class="price">950 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Шоколадный фондан</h3>
+            <p>Горячий шоколадный кекс с жидкой сердцевиной, подается с ванильным мороженым</p>
+            <div class="price">875 ₽</div>
+        </div>
+    </div>
+</div>
 {% endblock %}

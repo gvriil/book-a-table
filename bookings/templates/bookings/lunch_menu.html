@@ -1,9 +1,126 @@
 {% extends 'bookings/base.html' %}
+{% load static %}
 
-{% block title %}Загрузить Меню{% endblock %}
+{% block title %}Обеденное Меню{% endblock %}
+
+{% block extra_css %}
+<style>
+    .menu-header {
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #556B2F;
+        padding-bottom: 15px;
+    }
+
+    .menu-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+        color: #f8f8f8;
+    }
+
+    .menu-header p {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #f8f8f8;
+    }
+
+    .menu-category {
+        margin-top: 25px;
+        padding: 15px;
+        background-color: rgba(85, 107, 47, 0.3);
+        border-radius: 8px;
+    }
+
+    .menu-category h2 {
+        color: #f8f8f8;
+        margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+    }
+
+    .menu-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item h3 {
+        color: #f8f8f8;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .menu-item p {
+        color: #d9d9d9;
+        font-style: italic;
+    }
+
+    .menu-item .price {
+        color: #f8f8f8;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .seasonal-badge {
+        display: inline-block;
+        background-color: #556B2F;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        margin-left: 10px;
+    }
+</style>
+{% endblock %}
 
 {% block content %}
-<h1>Загрузить Меню</h1>
-<p>Это пример меню обеда для Coughlan's. Наше меню часто меняется в зависимости от сезонной доступности.</p>
-<!-- Add dynamic content or a list of menu items here later -->
+<div class="unified-container">
+    <div class="menu-header">
+        <h1>Обеденное Меню</h1>
+        <p>Легкие и питательные блюда для идеального обеда</p>
+    </div>
+
+    <div class="menu-category">
+        <h2>Эксклюзивное меню из сезонных продуктов</h2>
+
+        <div class="menu-item">
+            <h3>Салат с козьим сыром и свеклой <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Свежий салат с запеченной свеклой, козьим сыром, рукколой и грецкими орехами под медово-горчичной заправкой</p>
+            <div class="price">1295 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Суп из тыквы с кокосовым молоком <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Нежный тыквенный суп с кокосовым молоком и пряностями, подается с хрустящими гренками</p>
+            <div class="price">850 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Сэндвич с ростбифом и грибами <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Сочный ростбиф с карамелизированным луком и сезонными грибами в хрустящем багете</p>
+            <div class="price">1475 ₽</div>
+        </div>
+    </div>
+
+    <div class="menu-category">
+        <h2>Десерты</h2>
+
+        <div class="menu-item">
+            <h3>Грушевый тарт с карамелью <span class="seasonal-badge">Сезонное</span></h3>
+            <p>Нежный тарт с карамелизированными грушами и ванильным кремом</p>
+            <div class="price">795 ₽</div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Чизкейк с лесными ягодами</h3>
+            <p>Классический чизкейк с сезонными лесными ягодами и мятой</p>
+            <div class="price">675 ₽</div>
+        </div>
+    </div>
+</div>
 {% endblock %}
