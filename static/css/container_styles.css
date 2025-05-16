@@ -1,0 +1,10 @@
+/* Единый стиль для центральной плашки на всех трех шаблонах */
+.unified-container {
+    max-width: 800px;
+    margin: 80px auto;
+    background-color: #556B2F; /* Оливково-зеленый цвет */
+    padding: 30px;
+    border-radius: 8px;
+    color: #f8f8f8; /* Белый текст */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень вместо обводки */
+}
