@@ -1,0 +1,143 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}О ресторане Coughlan's{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Паралакс-эффект для фона с затемнением */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/hero.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    body {
+        background: none !important;
+    }
+
+    /* Базовые стили контейнера */
+    .about-container {
+        max-width: 800px;
+        margin: 80px auto;
+        background-color: rgba(0, 0, 0, 0.7); /* Темная полупрозрачная подложка */
+        padding: 30px;
+        border-radius: 8px;
+        color: #f8f8f8;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Заголовок */
+    .about-header {
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #556B2F;
+        padding-bottom: 15px;
+    }
+
+    .about-header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+    }
+
+    .about-header p {
+        font-style: italic;
+        font-size: 1.1rem;
+    }
+
+    /* Основная информация */
+    .about-content {
+        margin-bottom: 20px;
+    }
+
+    .about-content h2 {
+        color: #f8f8f8;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* Часы работы */
+    .hours-section {
+        text-align: center;
+        margin: 25px 0;
+        padding: 15px;
+        background-color: rgba(85, 107, 47, 0.3);
+        border-radius: 8px;
+    }
+
+    .hours-section h2 {
+        color: #f8f8f8;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .hours-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Кнопка бронирования */
+    .booking-button {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .booking-button a {
+        display: inline-block;
+        background-color: #556B2F;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 30px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .booking-button a:hover {
+        background-color: #4A5E28;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-header">
+        <h1>Ресторан Coughlan's</h1>
+        <p>Ирландское гостеприимство и аутентичная кухня</p>
+    </div>
+
+    <div class="about-content">
+        <h2>О ресторане</h2>
+        <p>Основанный в 1892 году, Coughlan's является одним из старейших семейных пабов Ирландии.
+            Мы сохраняем традиции ирландского гостеприимства и домашней кухни, создавая уютную атмосферу.</p>
+    </div>
+
+    <div class="hours-section">
+        <h2>Часы работы</h2>
+        <ul class="hours-list">
+            <li>Понедельник - Четверг: 12:00 - 22:00</li>
+            <li>Пятница - Суббота: 12:00 - 00:00</li>
+            <li>Воскресенье: 12:00 - 21:00</li>
+            <li>Праздничные дни: 12:00 - 22:00</li>
+        </ul>
+    </div>
+
+    <div class="booking-button">
+        <a href="{% url 'book_table' %}">Забронировать столик</a>
+    </div>
+</div>
+{% endblock %}

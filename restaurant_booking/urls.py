@@ -6,6 +6,7 @@ from rest_framework.routers import DefaultRouter
 
 from bookings.views import BookingViewSet
 from bookings.views import (
+    about,
     book_table,
     booking_success,
     booking_list,
@@ -66,6 +67,7 @@ menu_patterns = [
 
 # Основные пути (маршруты) приложения
 urlpatterns = [
+                  path('about/', about, name='about'),
                   path('api/', include(router.urls)),
                   path('admin/', admin.site.urls),  # Админка Django
                   path('', home, name='home'),  # Главная страница сайта

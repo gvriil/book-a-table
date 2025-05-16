@@ -4,25 +4,29 @@
 
 {% block extra_css %}
 <style>
-  /* Booking form container: transparent background and centered */
+  /* Booking form container with dark background */
   .booking-form-container {
     max-width: 500px;
     margin: 80px auto;
-    background: transparent; /* Invisible container */
+    background: rgba(0, 0, 0, 0.7); /* Темная полупрозрачная подложка */
     padding: 30px;
+    border-radius: 8px;
   }
+
   .booking-form-container h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #f8f8f8; /* Off white text */
   }
+
   /* Each form-group displays label and input side by side */
   .booking-form-container .form-group {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
   }
-  /* Labels are left-aligned, take 40% of the width */
+
+  /* Labels are left-aligned */
   .booking-form-container label {
     flex: 0 0 25%;
     text-align: left;
@@ -30,12 +34,14 @@
     margin-bottom: 0;
     font-weight: bold;
   }
-  /* Input fields take the remaining 60% */
+
+  /* Input fields take the remaining width */
   .booking-form-container .form-control {
     flex: 0 0 75%;
     max-width: 75%;
   }
-  /* Capsule-shaped, olive green submit button */
+
+  /* Capsule-shaped, olive green submit button without border */
   .booking-form-container button[type="submit"] {
     display: block;
     width: 100%;
@@ -46,12 +52,32 @@
     padding: 12px;
     font-size: 1.1rem;
     font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .booking-form-container button[type="submit"]:hover {
+    background-color: #4A5E28;
   }
 
   input {
-  width: auto; /* Remove the fixed width */
-  flex-grow: 1; /* Allow the input to grow within the flex container */
-}
+    width: auto; /* Remove the fixed width */
+    flex-grow: 1; /* Allow the input to grow within the flex container */
+  }
+
+  /* Add styles for error display */
+  .text-danger {
+    color: #ff6b6b;
+    margin-top: 5px;
+    font-size: 0.9rem;
+  }
+
+  .alert-danger {
+    background-color: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
 </style>
 {% endblock %}
 
@@ -66,13 +92,13 @@
     </div>
     {% endif %}
     {% for field in form %}
-      <div class="form-group">
-        {{ field.label_tag }}
-        {{ field }}
-        {% if field.errors %}
-          <div class="text-danger">{{ field.errors }}</div>
-        {% endif %}
-      </div>
+    <div class="form-group">
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.errors %}
+      <div class="text-danger">{{ field.errors }}</div>
+      {% endif %}
+    </div>
     {% endfor %}
     <button type="submit">Подтвердить бронь</button>
   </form>

@@ -9,19 +9,19 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404
-
-from .forms import BookingForm, ReviewForm
-from .models import Booking, Review
-
 # bookings/views.py (добавить к существующим views)
 from rest_framework import viewsets
+
+from .forms import BookingForm, ReviewForm
 from .models import Booking
+from .models import Review
 from .serializers import BookingSerializer
 
 
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
+
 
 def home(request):
     """
@@ -32,6 +32,15 @@ def home(request):
     return render(request, 'bookings/home.html', {
         'approved_reviews': approved_reviews,
     })
+
+
+def about(request):
+    """
+    Отображает страницу "О нас".
+
+    Предоставляет информацию о ресторане, его истории и концепции.
+    """
+    return render(request, 'bookings/about.html')
 
 
 def check_capacity(new_booking):
@@ -143,7 +152,7 @@ def booking_list(request):
 @staff_member_required
 def weekly_calendar(request):
     """
-    Отображает недельный календарь бронирований. 
+    Отображает недельный календарь бронирований.
     Только для сотрудников.
     """
     week_start_str = request.GET.get("week_start")
